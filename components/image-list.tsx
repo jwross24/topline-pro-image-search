@@ -1,4 +1,4 @@
-import Image from "next/image"
+import { ImageDetailViewer } from "@/components/image-detail-viewer"
 
 import { type PixabayImage } from "@/interfaces/image"
 
@@ -15,13 +15,7 @@ export function ImageList({ images }: ImageListProps) {
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {images.map((image) => (
         <div key={image.id} className="overflow-hidden rounded-md">
-          <Image
-            src={image.webformatURL}
-            alt={image.tags}
-            width={image.webformatWidth}
-            height={image.webformatHeight}
-            className="aspect-square h-auto w-auto rounded-md object-cover transition-all hover:scale-105"
-          />
+          <ImageDetailViewer image={image} />
         </div>
       ))}
     </div>
