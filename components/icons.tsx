@@ -1,9 +1,4 @@
-import {
-  Aperture,
-  Moon,
-  SunMedium,
-  type LucideIcon,
-} from "lucide-react"
+import { Aperture, Moon, SunMedium, type LucideIcon } from "lucide-react"
 
 export type Icon = LucideIcon
 

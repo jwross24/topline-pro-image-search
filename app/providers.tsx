@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import * as React from "react"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from "@/components/theme-provider"
 
 interface ProvidersProps {
   children: React.ReactNode
