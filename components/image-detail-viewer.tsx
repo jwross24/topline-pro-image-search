@@ -10,7 +10,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
-import { cn } from "@/lib/utils"
 import { PixabayImage } from "@/interfaces/image"
 
 interface ImageDetailViewerProps {
@@ -54,7 +53,7 @@ export function ImageDetailViewer({ image }: ImageDetailViewerProps) {
             <InfoCircledIcon className="mt-px h-5 w-5" />
             <div className="space-y-1">
               <p className="text-sm font-medium leading-none">Tags</p>
-              <div className="space-x-2">
+              <div className="grid grid-flow-row gap-1 sm:grid-flow-col sm:gap-2">
                 {image.tags.split(", ").map((tag) => (
                   <Badge key={tag} variant="secondary">
                     {tag}
