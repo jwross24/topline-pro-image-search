@@ -33,7 +33,7 @@ export function Search({ setSearchQuery }: SearchProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex w-full items-center space-x-2"
+        className="flex w-full items-center justify-center space-x-2"
       >
         <FormField
           control={form.control}
@@ -41,7 +41,7 @@ export function Search({ setSearchQuery }: SearchProps) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Search for images" {...field} />
+                <Input placeholder="Search for images..." {...field} />
               </FormControl>
             </FormItem>
           )}

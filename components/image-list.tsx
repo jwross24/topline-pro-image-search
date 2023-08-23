@@ -7,16 +7,20 @@ interface ImageListProps {
 }
 
 export function ImageList({ images }: ImageListProps) {
+  if (images.length === 0) {
+    return <p className="text-center leading-7">No images found.</p>
+  }
+
   return (
-    <div className="flex space-x-4 pb-4">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {images.map((image) => (
         <div key={image.id} className="overflow-hidden rounded-md">
           <Image
-            src={image.previewURL}
+            src={image.webformatURL}
             alt={image.tags}
-            width={image.previewWidth}
-            height={image.previewHeight}
-            className="aspect-square h-auto w-32 object-cover transition-all hover:scale-105"
+            width={image.webformatWidth}
+            height={image.webformatHeight}
+            className="aspect-square h-auto w-auto rounded-md object-cover transition-all hover:scale-105"
           />
         </div>
       ))}
