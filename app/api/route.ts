@@ -9,15 +9,18 @@ export async function GET(request: NextRequest) {
   }
 
   const query = request.nextUrl.searchParams.get("query") as string
+  const page = request.nextUrl.searchParams.get("page") as string
+  const pageSize = request.nextUrl.searchParams.get("pageSize") as string
 
   const imageResponse = await ky("https://pixabay.com/api/", {
     searchParams: {
       key: process.env.PIXABAY_API_KEY,
       q: query,
       image_type: "photo",
-      per_page: 20,
+      page,
+      per_page: pageSize,
     },
   }).json<ImageResponse>()
 
-  return NextResponse.json(imageResponse.hits)
+  return NextResponse.json(imageResponse)
 }

@@ -1,19 +1,39 @@
 import ky from "ky-universal"
 import { useQuery } from "@tanstack/react-query"
-import { type PixabayImage } from "@/interfaces/image"
 
-const getImages = async (query: string) => {
-  if (query === "") {
-    return []
-  }
+import { type ImageResponse } from "@/interfaces/image"
+import { type PaginationState } from "@/interfaces/pagination"
 
-  return await ky(`/api?query=${query}`).json<Array<PixabayImage>>()
+const EMPTY_IMAGE_RESPONSE: ImageResponse = {
+  total: 0,
+  totalHits: 0,
+  hits: [],
 }
 
-const useImages = (query: string) => {
+const getImages = async (
+  query: string,
+  pageIndex: number,
+  pageSize: number
+) => {
+  if (query === "") {
+    return EMPTY_IMAGE_RESPONSE
+  }
+
+  return ky("/api", {
+    searchParams: {
+      query,
+      page: pageIndex + 1,
+      pageSize: pageSize,
+    },
+  }).json<ImageResponse>()
+}
+
+export function useImages(query: string, paginationState: PaginationState) {
+  const { pageIndex, pageSize } = paginationState
+
   const { data: images, ...rest } = useQuery(
-    ["images", query],
-    () => getImages(query),
+    ["images", { query, pageIndex, pageSize }],
+    () => getImages(query, pageIndex, pageSize),
     {
       refetchOnWindowFocus: false,
       enabled: false,
@@ -21,9 +41,7 @@ const useImages = (query: string) => {
   )
 
   return {
-    data: images || [],
+    data: images || EMPTY_IMAGE_RESPONSE,
     ...rest,
   }
 }
-
-export { useImages }
