@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Image Search and Viewing Web App
 
-## Getting Started
+This web application allows users to search for images using the Pixabay API and view detailed information about selected images.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [Image Search and Viewing Web App](#image-search-and-viewing-web-app)
+  - [Table of Contents](#table-of-contents)
+  - [Technologies Used](#technologies-used)
+  - [Purpose](#purpose)
+  - [How to Run the App for Development](#how-to-run-the-app-for-development)
+  - [Deployment](#deployment)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This web app is built using the following technologies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **React/Next.js**: The frontend of the application is built using the React JavaScript library and Next.js 13 framework.
 
-## Learn More
+- **Pixabay API**: The Pixabay API is used to fetch image data for search and details. You will need an API key from Pixabay to use this application.
 
-To learn more about Next.js, take a look at the following resources:
+- **Tailwind CSS**: Styling is done using Tailwind
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Purpose
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The purpose of this web app is to demonstrate how to create a simple image search and viewing application using React and external API integration. Users can search for images by entering keywords, view a list of search results, and click on individual images to see more details, including the user who posted the image and relevant tags.
 
-## Deploy on Vercel
+## How to Run the App for Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Follow these steps to run the app locally for development:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone this repository to your local machine using Git:
+
+   ```
+   git clone https://github.com/jwross24/topline-pro-image-search.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd topline-pro-image-search
+   ```
+
+3. Install dependencies using npm (Node Package Manager):
+
+   ```
+   npm install
+   ```
+
+4. Set up your Pixabay API key:
+
+   - Visit [Pixabay](https://pixabay.com/api/docs/) to create an account and obtain an API key.
+   - Create a `.env.local` file in the project root.
+   - Add your API key to the `.env.local` file:
+
+     ```
+     PIXABAY_API_KEY=<your-api-key-here>
+     ```
+
+5. Start the development server:
+
+   ```
+   npm run dev
+   ```
+
+6. Open your web browser and access the app at `http://localhost:3000`.
+
+## Deployment
+
+The app is yet to be deployed, as I'm still trying to figure out some build issues. Hang tight!
